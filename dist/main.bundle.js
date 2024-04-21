@@ -775,6 +775,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Input {
+    
+
     test() {
         console.log('input module is working');
     };
@@ -968,61 +970,78 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/style.css */ "./src/assets/style.css");
-/* harmony import */ var _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view-components/input/input.js */ "./src/view-components/input/input.js");
-/* harmony import */ var _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view-components/list/list.js */ "./src/view-components/list/list.js");
+/* harmony import */ var _assets_imgs_checked_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/imgs/checked.png */ "./src/assets/imgs/checked.png");
+/* harmony import */ var _assets_imgs_unchecked_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/imgs/unchecked.png */ "./src/assets/imgs/unchecked.png");
+/* harmony import */ var _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view-components/input/input.js */ "./src/view-components/input/input.js");
+/* harmony import */ var _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view-components/list/list.js */ "./src/view-components/list/list.js");
 
 
 
 
-const input = new _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_1__["default"];
-const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_2__["default"];
+
+
+const input = new _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_3__["default"];
+const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__["default"];
 
 input.test();
 list.test();
 
-const inputBox = document.querySelector('#input-box');
-const listContainer = document.querySelector('#list-container');
-const addBtn = document.querySelector('#add-btn');
+const container = document.createElement('div');
+container.classList.add('container');
 
-function addTask() {
-    if (inputBox.value === '') {
-        alert('You must write something!');
-    } else {
-        let li = document.createElement('li');
-        li.textContent = inputBox.value;
+const todoApp = document.createElement('div');
+todoApp.classList.add('todo-app');
+
+const title = document.createElement('h2');
+title.textContent = 'To-do List';
+
+document.body.appendChild(container);
+container.appendChild(todoApp);
+todoApp.appendChild(title);
+
+// const inputBox = document.querySelector('#input-box');
+// const listContainer = document.querySelector('#list-container');
+// const addBtn = document.querySelector('#add-btn');
+
+// function addTask() {
+//     if (inputBox.value === '') {
+//         alert('You must write something!');
+//     } else {
+//         let li = document.createElement('li');
+//         li.textContent = inputBox.value;
         
-        let span = document.createElement('span');
-        span.textContent = '\u00d7'
+//         let span = document.createElement('span');
+//         span.textContent = '\u00d7'
         
-        li.appendChild(span)
-        listContainer.appendChild(li);
+//         li.appendChild(span)
+//         listContainer.appendChild(li);
 
-        inputBox.value = '';
+//         inputBox.value = '';
 
-        saveData();
-    }
-};
-addBtn.addEventListener('click', addTask);
+//         saveData();
+//     }
+// };
+// addBtn.addEventListener('click', addTask);
 
-listContainer.addEventListener('click', (e) => {
-    if (e.target.tagName === 'LI') {
-        e.target.classList.toggle('checked');
-        saveData();
-    } else if (e.target.tagName === 'SPAN') {
-        e.target.parentElement.remove();
-        saveData();
-    }
-});
+// listContainer.addEventListener('click', (e) => {
+//     if (e.target.tagName === 'LI') {
+//         e.target.classList.toggle('checked');
+//         saveData();
+//     } else if (e.target.tagName === 'SPAN') {
+//         e.target.parentElement.remove();
+//         saveData();
+//     }
+// });
 
-function saveData() {
-    localStorage.setItem('data', listContainer.innerHTML);
-};
+// function saveData() {
+//     localStorage.setItem('data', listContainer.innerHTML);
+// };
 
-function showTask() {
-    listContainer.innerHTML = localStorage.getItem('data');
-}
+// function showTask() {
+//     listContainer.innerHTML = localStorage.getItem('data');
+// }
 
-showTask();
+// showTask();
 })();
 
 /******/ })()
