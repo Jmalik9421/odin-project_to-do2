@@ -1060,10 +1060,18 @@ const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__["def
 
 input.renderInput();
 list.renderListContainer();
+
 input.addBtn.addEventListener('click', () => {
     const task = input.getTask();
     list.addTask(task);
     input.clear();
+});
+list.listContainer.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        e.target.classList.toggle('checked');
+    } else if (e.target.tagName === 'SPAN') {
+        e.target.parentElement.remove();
+    };
 });
 // input.deleteBtn.addEventListener('click', list.addTask(input.returnProject()));
 // list.li.addEventListener('click', list.toggleCheck());

@@ -22,10 +22,18 @@ const list = new List;
 
 input.renderInput();
 list.renderListContainer();
+
 input.addBtn.addEventListener('click', () => {
     const task = input.getTask();
     list.addTask(task);
     input.clear();
+});
+list.listContainer.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        e.target.classList.toggle('checked');
+    } else if (e.target.tagName === 'SPAN') {
+        e.target.parentElement.remove();
+    };
 });
 // input.deleteBtn.addEventListener('click', list.addTask(input.returnProject()));
 // list.li.addEventListener('click', list.toggleCheck());
