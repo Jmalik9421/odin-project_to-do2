@@ -14,19 +14,19 @@ Let' start simple and then gradually build up from there.
         - [DONE] input module
         - [DONE] list module
 
-2. load input 
-    - input field
-    - add project button
+2. [DONE] load input 
+    - [DONE] input field
+    - [DONE] add project button
 
-3. load list of projects
-    - when add project button is clicked
-        - load title
-        - load list of projects
-            - checkbox
-            - text of project (cant be changed)
-            - delete button
-                - when delete button is pressed, remove entire row of project from list
+3. [DONE] load list of projects
+    - [DONE] when add project button is clicked
+        - [DONE] load title
+        - [DONE] load list of projects
+            - [DONE] checkbox
+            - [DONE] text of project (cant be changed)
+            - [DONE] delete button
+                - [DONE] when delete button is pressed, remove entire row of project from list
 
-4. save to local storage so data persists
+4. [DONE] save to local storage so data persists
         
 

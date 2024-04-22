@@ -882,6 +882,16 @@ module.exports = __webpack_require__.p + "6f298cca57a5a8b36055.png";
 
 /***/ }),
 
+/***/ "./src/assets/imgs/todo.png":
+/*!**********************************!*\
+  !*** ./src/assets/imgs/todo.png ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "bcd97a33c20b9fee4cbe.png";
+
+/***/ }),
+
 /***/ "./src/assets/imgs/unchecked.png":
 /*!***************************************!*\
   !*** ./src/assets/imgs/unchecked.png ***!
@@ -1037,10 +1047,12 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/style.css */ "./src/assets/style.css");
-/* harmony import */ var _assets_imgs_checked_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/imgs/checked.png */ "./src/assets/imgs/checked.png");
-/* harmony import */ var _assets_imgs_unchecked_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/imgs/unchecked.png */ "./src/assets/imgs/unchecked.png");
-/* harmony import */ var _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view-components/input/input.js */ "./src/view-components/input/input.js");
-/* harmony import */ var _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view-components/list/list.js */ "./src/view-components/list/list.js");
+/* harmony import */ var _assets_imgs_todo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/imgs/todo.png */ "./src/assets/imgs/todo.png");
+/* harmony import */ var _assets_imgs_checked_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/imgs/checked.png */ "./src/assets/imgs/checked.png");
+/* harmony import */ var _assets_imgs_unchecked_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/imgs/unchecked.png */ "./src/assets/imgs/unchecked.png");
+/* harmony import */ var _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view-components/input/input.js */ "./src/view-components/input/input.js");
+/* harmony import */ var _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view-components/list/list.js */ "./src/view-components/list/list.js");
+
 
 
 
@@ -1059,9 +1071,10 @@ title.textContent = 'To-do List';
 document.body.appendChild(container);
 container.appendChild(todoApp);
 todoApp.appendChild(title);
+title.appendChild(todoIcon);
 
-const input = new _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_3__["default"];
-const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+const input = new _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_5__["default"];
 
 input.renderInput();
 list.renderListContainer();

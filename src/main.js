@@ -1,4 +1,5 @@
 import './assets/style.css';
+import TodoIcon from './assets/imgs/todo.png';
 import CheckedIcon from './assets/imgs/checked.png';
 import UncheckedIcon from './assets/imgs/unchecked.png';
 import Input from './view-components/input/input.js';
@@ -16,6 +17,7 @@ title.textContent = 'To-do List';
 document.body.appendChild(container);
 container.appendChild(todoApp);
 todoApp.appendChild(title);
+title.appendChild(todoIcon);
 
 const input = new Input;
 const list = new List;
