@@ -27,24 +27,17 @@ input.addBtn.addEventListener('click', () => {
     const task = input.getTask();
     list.addTask(task);
     input.clear();
+    saveData()
 });
 list.listContainer.addEventListener('click', (e) => {
     if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked');
+        saveData()
     } else if (e.target.tagName === 'SPAN') {
         e.target.parentElement.remove();
+        saveData()
     };
 });
-// input.deleteBtn.addEventListener('click', list.addTask(input.returnProject()));
-// list.li.addEventListener('click', list.toggleCheck());
-// list.deleteBtn.addEventListener('click', list.delete());
-
-// !!! I AM HERE !!!
-// - render input field and add its logic (btn click) in input component
-// - render list of projects and its logic in list component
-// - load the classes in this main.js file 
-// - save data to and fetch data from local storage
-// 
 
 // const inputBox = document.querySelector('#input-box');
 // const listContainer = document.querySelector('#list-container');
@@ -80,12 +73,8 @@ list.listContainer.addEventListener('click', (e) => {
 //     }
 // });
 
-// function saveData() {
-//     localStorage.setItem('data', listContainer.innerHTML);
-// };
+function saveData() {
+    localStorage.setItem('data', list.listContainer.innerHTML);
+};
 
-// function showTask() {
-//     listContainer.innerHTML = localStorage.getItem('data');
-// }
-
-// showTask();
+list.renderTask();

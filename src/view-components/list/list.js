@@ -12,6 +12,7 @@ export default class List {
 
         todoApp.appendChild(this.listContainer);
     };
+
     addTask(task) {
         const listItem = this.renderListItem(task);
         this.renderDeleteBtn(listItem);
@@ -29,5 +30,9 @@ export default class List {
         deleteBtn.textContent = '\u00d7';
 
         listItem.appendChild(deleteBtn);
+    };
+
+    renderTask() {
+        this.listContainer.innerHTML = localStorage.getItem('data');
     };
 };
