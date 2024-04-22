@@ -775,10 +775,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Input {
-    
+    renderInput() {
+        const row = this.renderRow();
+        this.renderInputBox(row);
+        this.renderAddBtn(row);
+    };
+    renderRow() {
+        const todoApp = document.querySelector('.todo-app');
 
-    test() {
-        console.log('input module is working');
+        const row = document.createElement('div');
+        row.classList.add('row');
+
+        todoApp.appendChild(row);
+
+        return row;
+    };
+    renderInputBox(row) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = 'input-box';
+        input.placeholder = 'Groceries...';
+
+        row.appendChild(input);
+    };
+    renderAddBtn(row) {
+        const addBtn = document.createElement('button');
+        addBtn.id = 'add-btn';
+        addBtn.textContent = 'Add';
+
+        row.appendChild(addBtn);
     };
 };
 
@@ -980,12 +1005,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const input = new _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_3__["default"];
-const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__["default"];
-
-input.test();
-list.test();
-
 const container = document.createElement('div');
 container.classList.add('container');
 
@@ -998,6 +1017,23 @@ title.textContent = 'To-do List';
 document.body.appendChild(container);
 container.appendChild(todoApp);
 todoApp.appendChild(title);
+
+const input = new _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_3__["default"];
+const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+
+input.renderInput();
+
+// input.renderInput();
+// input.deleteBtn.addEventListener('click', list.addTask(input.returnProject()));
+// list.li.addEventListener('click', list.toggleCheck());
+// list.deleteBtn.addEventListener('click', list.delete());
+
+// !!! I AM HERE !!!
+// - render input field and add its logic (btn click) in input component
+// - render list of projects and its logic in list component
+// - load the classes in this main.js file 
+// - save data to and fetch data from local storage
+// 
 
 // const inputBox = document.querySelector('#input-box');
 // const listContainer = document.querySelector('#list-container');

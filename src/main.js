@@ -4,12 +4,6 @@ import UncheckedIcon from './assets/imgs/unchecked.png';
 import Input from './view-components/input/input.js';
 import List from './view-components/list/list.js';
 
-const input = new Input;
-const list = new List;
-
-input.test();
-list.test();
-
 const container = document.createElement('div');
 container.classList.add('container');
 
@@ -22,6 +16,23 @@ title.textContent = 'To-do List';
 document.body.appendChild(container);
 container.appendChild(todoApp);
 todoApp.appendChild(title);
+
+const input = new Input;
+const list = new List;
+
+input.renderInput();
+
+// input.renderInput();
+// input.deleteBtn.addEventListener('click', list.addTask(input.returnProject()));
+// list.li.addEventListener('click', list.toggleCheck());
+// list.deleteBtn.addEventListener('click', list.delete());
+
+// !!! I AM HERE !!!
+// - render input field and add its logic (btn click) in input component
+// - render list of projects and its logic in list component
+// - load the classes in this main.js file 
+// - save data to and fetch data from local storage
+// 
 
 // const inputBox = document.querySelector('#input-box');
 // const listContainer = document.querySelector('#list-container');
