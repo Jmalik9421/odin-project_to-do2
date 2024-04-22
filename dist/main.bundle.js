@@ -775,35 +775,46 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Input {
+    constructor() {
+        this.row = document.createElement('div');
+        this.input = document.createElement('input');
+        this.addBtn = document.createElement('button');
+    }
+
     renderInput() {
-        const row = this.renderRow();
-        this.renderInputBox(row);
-        this.renderAddBtn(row);
+        this.renderRow();
+        this.renderInputBox();
+        this.renderAddBtn();
+
+        return this.input.value;
     };
     renderRow() {
         const todoApp = document.querySelector('.todo-app');
 
-        const row = document.createElement('div');
-        row.classList.add('row');
+        this.row.classList.add('row');
 
-        todoApp.appendChild(row);
-
-        return row;
+        todoApp.appendChild(this.row);
     };
-    renderInputBox(row) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.id = 'input-box';
-        input.placeholder = 'Groceries...';
+    renderInputBox() {
+        this.input.type = 'text';
+        this.input.id = 'input-box';
+        this.input.placeholder = 'Groceries...';
 
-        row.appendChild(input);
+        this.row.appendChild(this.input);
     };
-    renderAddBtn(row) {
-        const addBtn = document.createElement('button');
-        addBtn.id = 'add-btn';
-        addBtn.textContent = 'Add';
+    renderAddBtn() {
+        this.addBtn.id = 'add-btn';
+        this.addBtn.textContent = 'Add';
 
-        row.appendChild(addBtn);
+        this.row.appendChild(this.addBtn);
+    };
+
+    getTask() {
+        return this.input.value;
+    };
+
+    clear() {
+        this.input.value = '';
     };
 };
 
@@ -823,8 +834,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class List {
-    test() {
-        console.log('list module is working');
+    constructor() {
+        this.listContainer = document.createElement('ul');
+    };
+
+    renderListContainer() {
+        const todoApp = document.querySelector('.todo-app');
+
+        this.listContainer.id = 'list-container';
+
+        todoApp.appendChild(this.listContainer);
+    };
+    addTask(task) {
+        const listItem = this.renderListItem(task);
+        this.renderDeleteBtn(listItem);
+    };
+    renderListItem(task) {
+        const listItem = document.createElement('li');
+        listItem.textContent = task
+
+        this.listContainer.appendChild(listItem);
+
+        return listItem;
+    };
+    renderDeleteBtn(listItem) {
+        const deleteBtn = document.createElement('span');
+        deleteBtn.textContent = '\u00d7';
+
+        listItem.appendChild(deleteBtn);
     };
 };
 
@@ -1022,8 +1059,12 @@ const input = new _view_components_input_input_js__WEBPACK_IMPORTED_MODULE_3__["
 const list = new _view_components_list_list_js__WEBPACK_IMPORTED_MODULE_4__["default"];
 
 input.renderInput();
-
-// input.renderInput();
+list.renderListContainer();
+input.addBtn.addEventListener('click', () => {
+    const task = input.getTask();
+    list.addTask(task);
+    input.clear();
+});
 // input.deleteBtn.addEventListener('click', list.addTask(input.returnProject()));
 // list.li.addEventListener('click', list.toggleCheck());
 // list.deleteBtn.addEventListener('click', list.delete());

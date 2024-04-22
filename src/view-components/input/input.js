@@ -1,34 +1,45 @@
 import './input.css';
 
 export default class Input {
+    constructor() {
+        this.row = document.createElement('div');
+        this.input = document.createElement('input');
+        this.addBtn = document.createElement('button');
+    }
+
     renderInput() {
-        const row = this.renderRow();
-        this.renderInputBox(row);
-        this.renderAddBtn(row);
+        this.renderRow();
+        this.renderInputBox();
+        this.renderAddBtn();
+
+        return this.input.value;
     };
     renderRow() {
         const todoApp = document.querySelector('.todo-app');
 
-        const row = document.createElement('div');
-        row.classList.add('row');
+        this.row.classList.add('row');
 
-        todoApp.appendChild(row);
-
-        return row;
+        todoApp.appendChild(this.row);
     };
-    renderInputBox(row) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.id = 'input-box';
-        input.placeholder = 'Groceries...';
+    renderInputBox() {
+        this.input.type = 'text';
+        this.input.id = 'input-box';
+        this.input.placeholder = 'Groceries...';
 
-        row.appendChild(input);
+        this.row.appendChild(this.input);
     };
-    renderAddBtn(row) {
-        const addBtn = document.createElement('button');
-        addBtn.id = 'add-btn';
-        addBtn.textContent = 'Add';
+    renderAddBtn() {
+        this.addBtn.id = 'add-btn';
+        this.addBtn.textContent = 'Add';
 
-        row.appendChild(addBtn);
+        this.row.appendChild(this.addBtn);
+    };
+
+    getTask() {
+        return this.input.value;
+    };
+
+    clear() {
+        this.input.value = '';
     };
 };

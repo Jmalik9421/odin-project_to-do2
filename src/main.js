@@ -21,8 +21,12 @@ const input = new Input;
 const list = new List;
 
 input.renderInput();
-
-// input.renderInput();
+list.renderListContainer();
+input.addBtn.addEventListener('click', () => {
+    const task = input.getTask();
+    list.addTask(task);
+    input.clear();
+});
 // input.deleteBtn.addEventListener('click', list.addTask(input.returnProject()));
 // list.li.addEventListener('click', list.toggleCheck());
 // list.deleteBtn.addEventListener('click', list.delete());
